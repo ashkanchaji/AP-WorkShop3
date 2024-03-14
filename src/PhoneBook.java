@@ -2,7 +2,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class PhoneBook {
-    ArrayList<Contact> contacts;
+    private ArrayList<Contact> contacts;
+
+    public PhoneBook(){
+        this.contacts = new ArrayList<>();
+    }
 
     public boolean addContact (Contact inputContact){
         for(Contact contact : contacts){
@@ -53,6 +57,12 @@ public class PhoneBook {
     }
 
     public void  printContacts(){
-        
+        if (contacts.isEmpty()){
+            System.out.println("No contact in phone book!");
+            return;
+        }
+        for (Contact contact : contacts){
+            System.out.println(contact.getFirstName() + " " + contact.getLastName());
+        }
     }
 }
